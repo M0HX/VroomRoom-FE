@@ -91,7 +91,7 @@ export default function PostCreate(props) {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="price" className="form-label">Price:</label>
-                    <input type="text" className="form-control" id="price" name="price" onChange={handleChange} required/>
+                    <input type="text" className="form-control" id="price" name="price" onChange={handleChange} required/> BD
                 </div>
                 <div className="mb-3">
                     <label htmlFor="image" className="form-label">Image:</label>

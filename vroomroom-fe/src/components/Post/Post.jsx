@@ -10,7 +10,7 @@ export default function Post(props) {
                 <img src={props.image[0]} className="card-img-top" alt="carImage" style={{ height: '250px' }}/>
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
-                    <p className="card-text"><b>Price: </b>{props.price}</p>
+                    <p className="card-text"><b>Price: </b>{props.price} BD</p>
                     <p className="card-text"><b>Category: </b>{props.category ? props.category.name : 'No Category'}</p>
                     {props.admin === "admin" && <>
                         <Link to={`/post/edit/${props._id}`} className="btn btn-outline-primary">Edit</Link>
