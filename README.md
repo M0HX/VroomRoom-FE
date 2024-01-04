@@ -78,3 +78,4 @@ The web application has 2 types of users:
 2. Search Bar.
 3. Live Chat for communication between the buyer/seller.
 4. Comments for the Posts.
+5. Paid listing.
