@@ -60,18 +60,18 @@ The web application has 2 types of users:
 ![Screen Wishlist](https://i.imgur.com/UMkUpqH.png)
 
 ## Favorite Features in Website
-1.
-2.
-3.
+1. Adding a Category.
+2. Adding a Post.
+3. Viewing Posts in a certain Category.
 
 ## Difficult Feature
-1.
-2.
+1. Viewing Posts in a certain Category.
+2. Uploading images/multiple images.
 
 ## List of Unsolved Problems
-1.
-2.
-3.
+1. Managing users with admin panel.
+2. Design and layouts.
+3. Extra properties for Posts
 
 ## Future Features
 1.
