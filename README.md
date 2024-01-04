@@ -74,6 +74,7 @@ The web application has 2 types of users:
 3. Extra properties for Posts
 
 ## Future Features
-1.
-2.
-3.
+1. Admin panel to manage users and user roles, etc.
+2. Search Bar.
+3. Live Chat for communication between the buyer/seller.
+4. Comments for the Posts.
