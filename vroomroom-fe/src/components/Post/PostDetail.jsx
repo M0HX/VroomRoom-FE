@@ -34,7 +34,7 @@ export default function PostDetail(props) {
                         <p className="card-text">{view.description}</p>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item"><strong>Location:</strong> {view.location}</li>
-                            <li className="list-group-item"><strong>Price:</strong> {view.price}</li>
+                            <li className="list-group-item"><strong>Price:</strong> {view.price} BD</li>
                             <li className="list-group-item"><strong>Category:</strong> {view.category.name}</li>
                         </ul>
                     </div>
