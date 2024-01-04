@@ -9,17 +9,18 @@ export default function MyPost(props) {
 
   useEffect(() => {
     getPosts();
-    
   }, []);
-  const deletePost = (id) =>{
+
+  const deletePost = (id) => {
     Axios.get(`post/delete?id=${id}`)
-    .then(res =>{
-        console.log("Post Deleted")
-    })
-    .catch(err =>{
+      .then((res) => {
+        console.log("Post Deleted");
+      })
+      .catch((err) => {
         console.log(err);
-    })
-}
+      });
+  };
+
   const getPosts = () => {
     if (!props.userId.id) return;
     Axios.get(`/post/myPost?user=${props.userId.id}`)
@@ -33,17 +34,17 @@ export default function MyPost(props) {
   };
 
   return (
-    <div>
-      <h1>MyPost</h1>
+    <div className="container mt-4">
+      <h1>My Posts</h1>
 
-      <div className='postHead d-flex justify-content-between align-items-center'>
+      <div className='row'>
         {myPost.length > 0 ? (
           myPost.map((post) => (
-            <div class='d-flex align-items-center justify-content-center col'>
-              <div className='editCard card shadow-sm' style={{ width: '17rem' }}>
-                <img src={post.image[0]} className='card-img-top' alt='carImage' width={100} height={250} />
-                <div className='editCardBody card-body'>
-                  <div class='d-flex justify-content-between align-items-center'>
+            <div key={post._id} className='col-md-4 mb-4'>
+              <div className='card shadow-sm'>
+                <img src={post.image[0]} className='card-img-top' alt='carImage' style={{ height: '250px', objectFit: 'cover' }} />
+                <div className='card-body'>
+                  <div className='d-flex justify-content-between align-items-center'>
                     <h5 className='card-title'>{post.title}</h5>
                     {/* <button
                       className={`btn btn-primary ${isAdded && 'btn-success'}`}
@@ -55,7 +56,7 @@ export default function MyPost(props) {
                       Whishlist {isAdded && 'added'}
                     </button> */}
                   </div>
-                  <div class='d-flex justify-content-between align-items-center'>
+                  <div className='d-flex justify-content-between align-items-center'>
                     <p className='card-text'>
                       <b>Price: </b>
                       {post.price}
@@ -65,12 +66,12 @@ export default function MyPost(props) {
                       {post.category ? post.category.name : 'No Category'}
                     </p>
                   </div>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <Link className='btn btn-warning' to={`/post/edit/${post._id}`}>Edit</Link>
-                    <button className='btn btn-danger' onClick={() => deletePost(post._id)}>Delete</button>
+                  <div className='d-flex justify-content-between align-items-center'>
+                    <Link className='btn btn-outline-warning' to={`/post/edit/${post._id}`}>Edit</Link>
+                    <button className='btn btn-outline-danger' onClick={() => deletePost(post._id)}>Delete</button>
                   </div>
                   <Link to={`/post/detail/${post._id}`}>
-                    <button type='button' className='btn btn-outline-secondary w-100 '>
+                    <button type='button' className='btn btn-outline-secondary mt-2 w-100'>
                       View
                     </button>
                   </Link>
@@ -79,7 +80,7 @@ export default function MyPost(props) {
             </div>
           ))
         ) : (
-          <p>No posts available</p>
+          <p className='text-center'>No posts available</p>
         )}
       </div>
     </div>
