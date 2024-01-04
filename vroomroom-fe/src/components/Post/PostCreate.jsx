@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
-
 export default function PostCreate(props) {
     const navigate = useNavigate();
     const [newPost, setNewPost] = useState({});
     const [categories, setCategories] = useState([]);
     const {userId} = useParams();
-
     useEffect(() => {
         loadCategories();
     }, []);
-
     const loadCategories = () => {
         Axios.get("/category/index")
             .then(response => {
@@ -21,13 +18,11 @@ export default function PostCreate(props) {
                 console.log(err);
             });
     };
-
     const allCategories = categories.map((cate) => (
         <option key={cate._id} value={cate._id}>
             {cate.name}
         </option>
     ));
-
     const addPost = (post) => {
         Axios.post("/post/add", post)
             .then(res => {
@@ -37,7 +32,6 @@ export default function PostCreate(props) {
                 console.log("Error adding Post", err);
             });
     };
-
     const handleChange = (event) => {
         const attributeToChange = event.target.name;
         const newValue = event.target.value;
@@ -54,11 +48,9 @@ export default function PostCreate(props) {
             }));
         }
     };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData();
-
         Object.keys(newPost).forEach(key => {
             if (key === 'image') {
                 for (let i = 0; i < newPost.image.length; i++) {
@@ -68,11 +60,9 @@ export default function PostCreate(props) {
                 formData.append(key, newPost[key]);
             }
         });
-
         formData.append('user', userId);
         addPost(formData);
     };
-
     return (
         <div className="container mt-4">
             <h1>Add Post</h1>
