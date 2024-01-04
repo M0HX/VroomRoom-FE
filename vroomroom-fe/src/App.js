@@ -38,20 +38,21 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState({ id: null });
   const [userType,setUserType] = useState();
-
+const [userId, setUserId] = useState()
   useEffect(() => {
     const user = getUser();
 console.log("dddd")
     if (user && user.user) {
       setIsAuth(true);
       setUser(user.user);
+      setUserId(user.user.id)
     } else {
       console.log("nulling user",user)
       localStorage.removeItem("token");
       setIsAuth(false);
       setUser({ id: null }); // Set to default object
     }
-  }, []);
+  }, [userId]);
 
   const registerHandle = (user) => {
     Axios.post("auth/signup", user)
@@ -106,6 +107,7 @@ console.log("dddd")
          console.log(user);
          user ? setIsAuth(true) : setIsAuth(false)
          user ? setUser(user) : setUser(null)
+         user ? setUserId(user.user.id) : setUserId(null)
        }
      })
      .catch(err => {
@@ -123,7 +125,7 @@ console.log("dddd")
    return (
      <div>
       {/* <NavBar></NavBar> */}
-      {isAuth ? <NavBar isAuth={isAuth} onLogoutHandle={onLogoutHandle} userId={user.id} />
+      {isAuth ? <NavBar key={userId} isAuth={isAuth} onLogoutHandle={onLogoutHandle} userId={userId} />
       :
       <NavBar isAuth={isAuth} onLogoutHandle={onLogoutHandle}/>
 }
