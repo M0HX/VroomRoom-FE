@@ -46,18 +46,15 @@ export default function MyPost(props) {
                 <div className='card-body'>
                   <div className='d-flex justify-content-between align-items-center'>
                     <h5 className='card-title'>{post.title}</h5>
-
-                    <button
-                      className={`btn btn-outline-primary ${isAdded && 'btn-success'}`}
+                    {/* <button
+                      className={`btn btn-primary ${isAdded && 'btn-success'}`}
                       onClick={() => {
                         setIsAdded(true);
                         post.addWish(post._id);
                       }}
                     >
-
-                      Wishlist {isAdded && 'added'}
-                    </button>
-
+                      Whishlist {isAdded && 'added'}
+                    </button> */}
                   </div>
                   <div className='d-flex justify-content-between align-items-center'>
                     <p className='card-text'>

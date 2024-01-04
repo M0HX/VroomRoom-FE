@@ -78,7 +78,7 @@ export default function CategoryList(props) {
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <h1 className="mb-0">Category List</h1>
 
-                {props.isAuth &&<Link to={'/category/add'} className="btn btn-primary">Add Category</Link>}
+                {userType &&<Link to={'/category/add'} className="btn btn-primary">Add Category</Link>}
             </div>
             {error && <p className="text-danger">{error}</p>}
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">

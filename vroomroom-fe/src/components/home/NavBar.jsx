@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 
 export default function NavBar({ isAuth, onLogoutHandle, userId }) {
-  console.log(userId)
+  console.log("nav userID",userId)
   const [userImage,setUserImage] = useState();
 console.log(userImage)
   useEffect(() =>{

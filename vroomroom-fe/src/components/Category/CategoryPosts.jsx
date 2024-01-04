@@ -7,7 +7,6 @@ export default function CategoryPosts() {
     const [category, setCategory] = useState(null);
     const [error, setError] = useState(null);
     const { categoryId } = useParams();
-
     useEffect(() => {
         // Fetch posts
         Axios.get(`http://localhost:3050/category/posts?id=${categoryId}`)
@@ -49,7 +48,8 @@ export default function CategoryPosts() {
                                 <h5 className="card-title">{post.title}</h5>
                                 {/* Additional post details */}
                                 <Link to={`/post/detail/${post._id}`} className="btn btn-outline-secondary">View</Link>
-                                <button className="btn btn-outline-primary" onClick={() => addToWishlist(post._id)}>Wishlist</button>
+                                {/* <button className="btn btn-outline-primary" onClick={() => addToWishlist(post._id)}>Wishlist</button> */}
+
                             </div>
                         </div>
                     </div>
